@@ -12,7 +12,7 @@ OEWindow::OEWindow()
 
 	_SDL_init();
 
-	isActive = ThreadSafeVar<bool>(false);
+	//isActive = ThreadSafeVar<bool>(false);
 
 	//eReader = std::make_shared<SDL_EventsReader>();
 	//SDL_EventReaderSingleton::setInstance(eReader);
@@ -68,11 +68,11 @@ void OEWindow::_SDL_quit()
 
 void OEWindow::clear()
 {
-	isActive.setValue(false);
+	//isActive.setValue(false);
 	//eReader->stopWork();
 
 
-	isActive.clear();
+	//isActive.clear();
 	//eReader.reset();
 
 	renderHelpTexture->free();
@@ -274,12 +274,12 @@ void OEWindow::startMainThread()
 	_rebuild();
 	SDL_ShowWindow(winDescr);
 
-	isActive.setValue(true);
+	isActive =true;
 	//eReader->setActive(true);
 
 	try
 	{
-		while (isActive.getValue())
+		while (isActive)
 		{
 
 			//eReader->pollEvents();
@@ -290,7 +290,7 @@ void OEWindow::startMainThread()
 			{
 				if (e.type == SDL_QUIT)
 				{
-					isActive.setValue(false);
+					isActive = false;
 					break;
 				}
 				

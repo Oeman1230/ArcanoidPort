@@ -10,8 +10,8 @@
 #include <SDLColors.h>
 #include <OETexture.h>
 
-#include "./SDLMonitor/ThreadsafeVar.h"
-#include "./SDL_EventsReader/SDL_EventsReader.h"
+//#include "./SDLMonitor/ThreadsafeVar.h"
+//#include "./SDL_EventsReader/SDL_EventsReader.h"
 #include "./ClickManager/ClickManager.h"
 
 #include "OEInterfaces/IWindowActions.h"
@@ -95,7 +95,7 @@ protected:
 protected:
 
 
-	ThreadSafeVar<bool> isActive;
+	//ThreadSafeVar<bool> isActive;
 	//std::shared_ptr<SDL_EventsReader> eReader;
 
 
