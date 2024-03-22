@@ -45,37 +45,37 @@ double Hitbox::getAngleInCrossingPoint(MathVector vec)
 
     double angle = 0.0;
 
-    //Îïðåäåëåíèå óãëà
+    //ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ ÑƒÐ³Ð»Ð°
     try
     {
-        //Âðåìåííûå äîïîëíèòåëüíûå ïåðåìåííûå äëÿ îáðàáîòêè
+        //Ð’Ñ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ðµ Ð´Ð»Ñ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸
         double Px_plus_XlenDiv2 = (this->getPos().X() +
             (this->getXLength() / 2));
         double Py_plus_YlenDiv2 = (this->getPos().Y() +
             (this->getYLength() / 2));
 
-        //ñîçäàíèå âåêòîðà ïðèõîäÿùåé òî÷êè, îòíîñèòåëüíî öåíòðà ïîëÿ
+        //ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð¿Ñ€Ð¸Ñ…Ð¾Ð´ÑÑ‰ÐµÐ¹ Ñ‚Ð¾Ñ‡ÐºÐ¸, Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ†ÐµÐ½Ñ‚Ñ€Ð° Ð¿Ð¾Ð»Ñ
         MathVector VColliding = MathVector(
             vec.X() - Px_plus_XlenDiv2
             ,
             vec.Y() - Py_plus_YlenDiv2
         );
-        //Öåíòðàëüíûé âåêòîð
+        //Ð¦ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð²ÐµÐºÑ‚Ð¾Ñ€
         MathVector VCenterLine = 
             MathVector( this->getXLength() / 2, 0 );
 
-        //îïðåäåëåíèå êîñèíóñíîé ñîñòàâëÿþùåé óãëà ïîâîðîòà
+        //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ ÐºÐ¾ÑÐ¸Ð½ÑƒÑÐ½Ð¾Ð¹ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÑŽÑ‰ÐµÐ¹ ÑƒÐ³Ð»Ð° Ð¿Ð¾Ð²Ð¾Ñ€Ð¾Ñ‚Ð°
         double nomin = (VCenterLine.X() * VColliding.X());
         double denomin = (VCenterLine.len() * VColliding.len());
 
         cosAngle = std::acos(nomin / denomin);
 
-        //Öåíòðàëüíûé âåêòîð, íàïðàâëåííûé èç öåíòà ïîëÿ ââåðõ
+        //Ð¦ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð²ÐµÐºÑ‚Ð¾Ñ€, Ð½Ð°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ð¹ Ð¸Ð· Ñ†ÐµÐ½Ñ‚Ð° Ð¿Ð¾Ð»Ñ Ð²Ð²ÐµÑ€Ñ…
         MathVector VYCenter = MathVector(0, this->getYLength() / 2);
 
         nomin = (VYCenter.Y() * VColliding.Y());
         denomin = (VYCenter.len() * VColliding.len());
-        //Íàõîæäåíèå ñèíóñíîé ñîñòàâëÿþùåé óãëà
+        //ÐÐ°Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ðµ ÑÐ¸Ð½ÑƒÑÐ½Ð¾Ð¹ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÑŽÑ‰ÐµÐ¹ ÑƒÐ³Ð»Ð°
         sinAngle = std::asin(nomin / denomin);
 
     }
@@ -85,7 +85,7 @@ double Hitbox::getAngleInCrossingPoint(MathVector vec)
         return ret;
     }
 
-    //Ïðîâåðêà â êàêîé ïîëóïëîñêîñòè íàõîäèòñÿ ïðîâåðÿåìàÿ òî÷êà
+    //ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð² ÐºÐ°ÐºÐ¾Ð¹ Ð¿Ð¾Ð»ÑƒÐ¿Ð»Ð¾ÑÐºÐ¾ÑÑ‚Ð¸ Ð½Ð°Ñ…Ð¾Ð´Ð¸Ñ‚ÑÑ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼Ð°Ñ Ñ‚Ð¾Ñ‡ÐºÐ°
     if (sinAngle > 0)
     {
         angle = cosAngle;

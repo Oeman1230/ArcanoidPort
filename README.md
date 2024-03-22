@@ -10,10 +10,10 @@ External libraries: SDL2.0, SDL_image, SDL_ttf, SDL_gfx
 
 To compile program use cmake. 
 
-mkdir build
-cd build
-cmake ..
-cmake --build .
+mkdir build <br/>
+cd build <br/>
+cmake .. <br/>
+cmake --build . <br/>
 
-After build copy SDL2_gfx.dll file to ArcanoidPort.exe directory
+After build copy SDL2_gfx.dll file to ArcanoidPort.exe directory<br/>
 src/SDL2_gfx_lib/SDL2_gfx.dll   ->   build/Debug/

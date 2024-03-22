@@ -6,16 +6,16 @@
 namespace ArcContctants
 {
 
-    //Параметры мяча в пикселях
+    //РџР°СЂР°РјРµС‚СЂС‹ РјСЏС‡Р° РІ РїРёРєСЃРµР»СЏС…
     static constexpr int BALL_SIZE = 20;
     static constexpr int BALL_X_POS = BALL_SIZE * 2;
     static constexpr int BALL_Y_POS = 500;
 
-    //Параметры разрушаемых блоков в пикселях
+    //РџР°СЂР°РјРµС‚СЂС‹ СЂР°Р·СЂСѓС€Р°РµРјС‹С… Р±Р»РѕРєРѕРІ РІ РїРёРєСЃРµР»СЏС…
     static const int DESTROYABLE_BOX_XSIZE = 40 * 2;
     static const int DESTROYABLE_BOX_YSIZE = 60;
 
-    //Параметры платформы игрока в пикселях
+    //РџР°СЂР°РјРµС‚СЂС‹ РїР»Р°С‚С„РѕСЂРјС‹ РёРіСЂРѕРєР° РІ РїРёРєСЃРµР»СЏС…
     static const int PLATFORM_HORIZONTAL_SIZE = 160;
     static const int PLATFORM_VERTICAL_SIZE = 80;
 

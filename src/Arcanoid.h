@@ -28,7 +28,7 @@
 
 #include <BaseWindowObj.h>
 #include <OEWindow.h>
-#include "./OEFrames/OEFrame.h"
+#include <OEFrame.h>
 
 class Arcanoid
 {
@@ -69,7 +69,7 @@ private:
 
     //MessageBox messageFrame;
 
-    //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Поле окончания игры. При попадании мяча в это поле игрок проигрывает
     std::shared_ptr<Hitbox> gameOverBox;
 
 
@@ -79,24 +79,24 @@ public:
     static constexpr int MESSAGE_FRAME_XSIZE = 350;
     static constexpr int MESSAGE_FRAME_YSIZE = 200;
 
-    const std::string winningMessage = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
-    const std::string loseMessage = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ!";
+    const std::string winningMessage = "Поздравляю! Вы победили";
+    const std::string loseMessage = "Извините. Вы проиграли. Попробуйте снова!";
 
 
 public:
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Параметры мяча в пикселях
     static constexpr int BALL_SIZE = 20 ;
     static constexpr int BALL_X_POS = BALL_SIZE * 2;
     static constexpr int BALL_Y_POS = 500;
 
     SDL_Color ballColor = SDLColors::WHITE;
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Параметры разрушаемых блоков в пикселях
     static const int DESTROYABLE_BOX_XSIZE = 40 * 2;
     static const int DESTROYABLE_BOX_YSIZE = 60;
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Параметры платформы игрока в пикселях
     static const int PLATFORM_HORIZONTAL_SIZE = 160;
     static const int PLATFORM_VERTICAL_SIZE = 80;
 
@@ -104,12 +104,12 @@ private:
 
     
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    //Переменные состояния игры
     bool isGameStarted = false;
     bool isProgramActive = true;
     bool isGameOver = false;
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    //Параметры допустимого для перемещения платформы поля
     Hitbox platformAcceptablePos;
     std::shared_ptr<OEFrame> ACC_POS_texture;
 
@@ -120,17 +120,17 @@ private:
 
 public:
 
-    ///пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    ///Позиция левого верхнего угла в координатах окна
     static constexpr int ACPOS_X = 0;
     static constexpr int ACPOS_Y = GameWindow::BG_HEIGHT - PLATFORM_VERTICAL_SIZE * 2;
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Размер по горизонтали
     static constexpr int ACPOS_XLen = GameWindow::BG_WIDTH - PLATFORM_HORIZONTAL_SIZE;
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    //Размер по вертикали
     static constexpr int ACPOS_YLen = PLATFORM_VERTICAL_SIZE * 2 - (BALL_SIZE / 2);
 
-    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    //Вектор стартовой скорости мячика
     MathVector ballStartVelosity = MathVector(10, -10);
 
 public:
